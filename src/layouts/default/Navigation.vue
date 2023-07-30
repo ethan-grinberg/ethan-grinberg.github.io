@@ -48,6 +48,14 @@
                 :href="linkedin"
             ></v-list-item>
             <v-list-item
+                prepend-icon="mdi-briefcase" 
+                title="Resume" 
+                value="resume" 
+                :active="false"
+                :href="store.resume.basics.resume_url"
+            >
+            </v-list-item>
+            <v-list-item
                 prepend-icon="mdi-mail" 
                 title="Email" 
                 value="email" 
