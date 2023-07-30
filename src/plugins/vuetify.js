@@ -17,7 +17,7 @@ const myCustomLightTheme = {
     background: '#1E1E1E', // Dark gray background
     surface: '#2D2D2D',    // Slightly lighter gray surface
     primary: '#9B59B6',    // Purple
-    secondary: '#E91E63',  // Pink
+    secondary: '#d45fc0',  // Pink
     error: '#FF4081',      // Bright pink
     info: '#3498DB',       // Light blue
     success: '#8E44AD',    // Deep purple
