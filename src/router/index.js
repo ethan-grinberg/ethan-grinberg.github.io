@@ -20,14 +20,32 @@ const routes = [
     ],
   },
   {
-    name: "About",
     path: '/about',
-    component: AboutView
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'About',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: AboutView
+      },
+    ],
   },
   {
-    name: "Work",
     path: '/work',
-    component: WorkView
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Work',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: WorkView
+      },
+    ],
   }
 ]
 
