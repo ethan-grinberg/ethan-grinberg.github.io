@@ -29,7 +29,7 @@
           </v-btn>
           </v-row>
         </v-col>
-        <Vue3Lottie :animationData="monkeyLottie" height="350px" width="350px" />
+          <Vue3Lottie :animationData="monkeyLottie" height="350px" width="350px" />
       </v-row>
     </v-responsive>
   </v-container>
