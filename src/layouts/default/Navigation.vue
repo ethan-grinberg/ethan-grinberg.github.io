@@ -6,7 +6,7 @@
     >
         <v-list>
         <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+            prepend-avatar="@/assets/profile.jpg"
             :title="store.resume.basics.name"
             :subtitle="store.resume.basics.label"
             to="/"
