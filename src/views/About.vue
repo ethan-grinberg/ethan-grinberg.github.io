@@ -1,11 +1,19 @@
 <template>
     <v-container class="">
         <v-responsive class="">
-            <v-col cols="auto">
-                <div class="text-h2 text-center my-5">
-                    Some Highlights
+            <v-col cols="auto" class="my-5">
+                <div class="text-h2 text-center">
+                    About Me
                 </div>
-                <v-row>
+                <div class="my-5">
+                    <div>
+                        <v-img style="border-style: solid; border-radius: 8px;" src="@/assets/profile.jpg" width="250px" height="250px"></v-img>
+                    </div>
+                    <p class="mt-5 text-h6">
+                        {{ store.resume.basics.bio }}
+                    </p>
+                </div>
+                <v-row class="mt-10">
                     <v-icon 
                     icon="mdi-school" 
                     size="large">
@@ -86,10 +94,7 @@
                         </v-card>
                     </v-timeline-item>
                 </v-timeline>
-
-
             </v-col>
-
         </v-responsive>
     </v-container> 
 </template>
