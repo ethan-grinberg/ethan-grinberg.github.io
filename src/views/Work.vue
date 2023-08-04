@@ -33,11 +33,12 @@
                                     :key="n"
                                 >
                                     <v-card max-width="344">
-                                        <v-img
+                                        <!-- <v-img
                                             src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                                             height="200px"
                                             cover
-                                        ></v-img>
+                                        ></v-img> -->
+                                        <img :src="testImg" class="card-img">
                                         <v-card-title>
                                             Top western road trips
                                         </v-card-title>
@@ -45,9 +46,6 @@
                                         <v-card-subtitle>
                                             1,000 miles of wonder
                                         </v-card-subtitle>
-                                        <v-card-text>
-                                        test a;slkdfj;alskfj;alsk jkj;lkj;alk;  ;lkajs d;flkj;a ;alkj ;lkfj;klaj ; ;alksjdf;lksj; lkfj
-                                        </v-card-text>
                                         <v-card-actions>
                                             <v-btn
                                                 color="primary"
@@ -91,8 +89,10 @@ export default {
     },
     setup() {
         const store = useAppStore();
+        const testImg = new URL(`../assets/${store.resume.basics.profile_pic}.jpg`, import.meta.url).href;
         return {
-            store
+            store,
+            testImg
         }
     },
 
@@ -101,4 +101,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.card-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+</style>
   

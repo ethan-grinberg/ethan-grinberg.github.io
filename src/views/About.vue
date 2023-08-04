@@ -13,7 +13,7 @@
                         {{ store.resume.basics.bio }}
                     </p>
                 </div>
-                <v-row class="mt-10">
+                <v-row class="mt-10 d-flex align-center">
                     <v-icon 
                     icon="mdi-school" 
                     size="large">
@@ -40,7 +40,7 @@
                         </v-card>
                     </v-timeline-item>
                 </v-timeline>
-                <v-row>
+                <v-row class="d-flex align-center">
                     <v-icon 
                     icon="mdi-medal" 
                     size="large">
@@ -67,7 +67,7 @@
                         </v-card>
                     </v-timeline-item>
                 </v-timeline>
-                <v-row>
+                <v-row class="d-flex align-center">
                     <v-icon 
                     icon="mdi-bookshelf" 
                     size="large">
