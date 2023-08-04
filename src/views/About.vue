@@ -19,7 +19,7 @@
                     size="large">
                     </v-icon>
 
-                    <div class="text-h5 ml-4">
+                    <div class="text-h4 ml-4">
                         Education
                     </div>
                 </v-row>
@@ -46,7 +46,7 @@
                     size="large">
                     </v-icon>
 
-                    <div class="text-h5 ml-4">
+                    <div class="text-h4 ml-4">
                         Awards
                     </div>
                 </v-row>
@@ -73,7 +73,7 @@
                     size="large">
                     </v-icon>
 
-                    <div class="text-h5 ml-4">
+                    <div class="text-h4 ml-4">
                         Publications
                     </div>
                 </v-row>
