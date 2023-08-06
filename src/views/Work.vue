@@ -29,22 +29,16 @@
                             >
                                 <v-col
                                     cols="auto"
-                                    v-for="n in 4"
-                                    :key="n"
+                                    v-for="project in store.resume.projects"
                                 >
                                     <v-card max-width="344">
-                                        <!-- <v-img
-                                            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                                            height="200px"
-                                            cover
-                                        ></v-img> -->
-                                        <img :src="testImg" class="card-img">
+                                        <img :src="getImg(project.images[0])" class="card-img">
                                         <v-card-title>
-                                            Top western road trips
+                                            {{ project.name }}
                                         </v-card-title>
 
                                         <v-card-subtitle>
-                                            1,000 miles of wonder
+                                            {{ project.type }}
                                         </v-card-subtitle>
                                         <v-card-actions>
                                             <v-btn
@@ -89,15 +83,19 @@ export default {
     },
     setup() {
         const store = useAppStore();
-        const testImg = new URL(`../assets/${store.resume.basics.profile_pic}.jpg`, import.meta.url).href;
         return {
-            store,
-            testImg
+            store
         }
     },
 
     created() {
         console.log(this.store.resume.basics.name);
+    },
+
+    methods: {
+        getImg(name) {
+            return new URL(`../assets/${name}`, import.meta.url).href;
+        }
     }
 }
 </script>
