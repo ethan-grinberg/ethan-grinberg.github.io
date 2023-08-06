@@ -1,5 +1,4 @@
 <template>
-  <!-- <HelloWorld /> -->
   <v-container class="fill-height">
     <v-responsive class="align-center text-left fill-height">
       <v-row>
@@ -36,7 +35,6 @@
 </template>
 
 <script>
-  import HelloWorld from '@/components/HelloWorld.vue'
   import {useAppStore} from '@/store/app'
   import { Vue3Lottie } from 'vue3-lottie'
   import meditatingMonkey from '@/assets/meditating-monkey.json';
@@ -44,7 +42,6 @@
   export default {
     name: "HomeView",
     components: {
-      HelloWorld,
       Vue3Lottie
     },
     data() {
