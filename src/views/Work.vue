@@ -43,7 +43,8 @@
                                         <v-card-actions>
                                             <v-btn
                                                 color="primary"
-                                                variant="text"
+                                                variant="tonal"
+                                                :to="`project/${project.name}`"
                                             >
                                                 Explore
                                             </v-btn>
@@ -59,10 +60,8 @@
                         Courses
                     </div>
                 </v-col>
-
         </v-responsive>
     </v-container>
-
 </template>
   
 <script>

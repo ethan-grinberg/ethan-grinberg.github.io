@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/Home.vue'
 import AboutView from '../views/About.vue'
 import WorkView from '../views/Work.vue'
+import ProjectPage from '../views/ProjectPage.vue'
+import DefaultVue from '../layouts/default/Default.vue'
 
 const routes = [
   {
@@ -44,6 +46,20 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: WorkView
+      },
+    ],
+  },
+  {
+    path: '/project/:id',
+    component: DefaultVue,
+    children: [
+      {
+        path: '',
+        name: 'ProjectPage',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: ProjectPage
       },
     ],
   }
