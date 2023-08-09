@@ -1,7 +1,7 @@
 <template>
-   <h2>
+  <h2>
     Project Page
-   </h2>
+  </h2>
 </template>
   
   <script>
@@ -11,16 +11,16 @@
       name: "ProjectView",
       components: {
       },
-      data() {
-        return {
-        }
-  
-      },
       setup() {
         const store = useAppStore();
         return {
           store
         }
+      },
+      data() {
+        return {
+        }
+  
       },
       created() {
         const name = this.$route.params.id
