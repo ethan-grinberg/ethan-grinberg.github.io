@@ -21,80 +21,89 @@
             {{ store.resume.basics.bio }}
           </p>
         </div>
-        <v-row class="mt-10 d-flex align-center">
-          <v-icon 
-            icon="mdi-school" 
-            size="large"
-          />
-          <div class="text-h4 ml-4">
-            Education
-          </div>
-        </v-row>
-        <v-divider class="my-5" />  
-        <v-container>
-          <v-row align="end">
-            <v-col
-              v-for="item in store.resume.education"
-              :key="item.title"
-              cols="12"
-            >
-              <v-card
-                class="elevation-2"
-                max-width="500px"
-              >
-                <v-card-title
-                  class="text-h6 text-wrap"
-                  style="word-break: break-word"
-                >
-                  {{ item.title }}
-                </v-card-title>
-                <v-card-text
-                  class="text-wrap"
-                  style="word-break: break-word"
-                >
-                  {{ item.description }} 
-                </v-card-text>
-              </v-card>
+        <v-container class="mt-15">
+          <v-row>
+            <v-col>
+              <v-row class="d-flex align-center">
+                <v-icon 
+                  icon="mdi-school" 
+                  size="large"
+                />
+                <div class="text-h4 ml-4">
+                  Education
+                </div>
+              </v-row>
+              <v-divider class="my-5" />  
+
+              <v-container>
+                <v-row align="end">
+                  <v-col
+                    v-for="item in store.resume.education"
+                    :key="item.title"
+                    cols="12"
+                  >
+                    <v-card
+                      class="elevation-2"
+                      max-width="500px"
+                    >
+                      <v-card-title
+                        class="text-h6 text-wrap"
+                        style="word-break: break-word"
+                      >
+                        {{ item.title }}
+                      </v-card-title>
+                      <v-card-text
+                        class="text-wrap"
+                        style="word-break: break-word"
+                      >
+                        {{ item.description }} 
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-col>
+            <v-col>
+              <v-row class="d-flex align-center">
+                <v-icon 
+                  icon="mdi-bookshelf" 
+                  size="large"
+                />
+                <div class="text-h4 ml-4">
+                  Publications
+                </div>
+              </v-row>
+              <v-divider class="my-5" />
+              <v-container>
+                <v-row align="end">
+                  <v-col
+                    v-for="item in store.resume.publications"
+                    :key="item.title"
+                    cols="12"
+                  >
+                    <v-card
+                      class="elevation-2"
+                      max-width="500px"
+                    >
+                      <v-card-title
+                        class="text-h6 text-wrap"
+                        style="word-break: break-word"
+                      >
+                        {{ item.title }}
+                      </v-card-title>
+                      <v-card-text
+                        class="text-wrap"
+                        style="word-break: break-word"
+                      >
+                        {{ item.description }} 
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
             </v-col>
           </v-row>
-        </v-container>
-        <v-row class="d-flex align-center mt-5">
-          <v-icon 
-            icon="mdi-bookshelf" 
-            size="large"
-          />
-          <div class="text-h4 ml-4">
-            Publications
-          </div>
-        </v-row>
-        <v-divider class="my-5" />
-        <v-container>
-          <v-row align="end">
-            <v-col
-              v-for="item in store.resume.publications"
-              :key="item.title"
-              cols="12"
-            >
-              <v-card
-                class="elevation-2"
-                max-width="500px"
-              >
-                <v-card-title
-                  class="text-h6 text-wrap"
-                  style="word-break: break-word"
-                >
-                  {{ item.title }}
-                </v-card-title>
-                <v-card-text
-                  class="text-wrap"
-                  style="word-break: break-word"
-                >
-                  {{ item.description }} 
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
+        </v-container>      
         <v-row class="d-flex align-center mt-5">
           <v-icon 
             icon="mdi-medal" 
