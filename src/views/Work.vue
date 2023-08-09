@@ -36,7 +36,10 @@
                   :src="getImg(project.images[0])"
                   class="card-img"
                 >
-                <v-card-title>
+                <v-card-title
+                  class="text-wrap"
+                  style="word-break: break-word"
+                >
                   {{ project.name }}
                 </v-card-title>
 
@@ -59,6 +62,18 @@
         <div class="text-h4 my-5">
           Work Experience
         </div>
+        <v-container>
+          <v-row
+            v-for="work in store.resume.work"
+            align="start"
+          >
+            <v-card>
+              <v-card-title>
+                {{ work.position }}
+              </v-card-title>
+            </v-card>
+          </v-row>
+        </v-container>
         <div class="text-h4 my-5">
           Courses
         </div>
