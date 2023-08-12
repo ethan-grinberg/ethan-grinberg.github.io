@@ -79,7 +79,7 @@
           >
             <v-card
               width="600px"
-              class="mt-5 pb-5"
+              class="mt-5 "
             >
               <v-hover v-slot="{isHovering, props}">
                 <v-btn
@@ -103,6 +103,9 @@
               >
                 {{ work.company }}
               </v-card-subtitle>
+              <v-card-text>
+                {{ work.date }}
+              </v-card-text>
             </v-card>
           </v-row>
         </v-container>
