@@ -113,6 +113,7 @@
 .name:hover {
   color: #3498DB;
   text-decoration-color: #3498DB;
+  transition: 0.2s;
 }
 
 .name {
