@@ -10,17 +10,16 @@
         </div>
         <div class="my-10">
           <div
-            class="d-flex align-center justify-start"
+            class="d-flex align-center justify-center"
             style="flex-wrap: wrap; gap: 20px;"
           >
-            <div>
+            <v-card>
               <v-img
-                style="border-style: solid; border-radius: 8px;"
                 src="@/assets/profile.jpg"
                 width="250px"
                 height="250px"
               />
-            </div>
+            </v-card>
             <p
               class="text-h6 font-weight-light"
               style="max-width: 800px;"
