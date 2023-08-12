@@ -69,7 +69,7 @@
             </v-sheet>
           </v-carousel-item>
         </v-carousel>
-        <v-container class="mt-15">
+        <v-container class="mt-5">
           <v-row>
             <v-col>
               <v-row class="d-flex align-center">
