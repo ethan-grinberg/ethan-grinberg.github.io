@@ -8,18 +8,26 @@
         <div class="text-h2 text-center">
           About Me
         </div>
-        <div class="my-5">
-          <div>
-            <v-img
-              style="border-style: solid; border-radius: 8px;"
-              src="@/assets/profile.jpg"
-              width="250px"
-              height="250px"
-            />
+        <div class="my-10">
+          <div
+            class="d-flex align-center justify-start"
+            style="flex-wrap: wrap; gap: 20px;"
+          >
+            <div>
+              <v-img
+                style="border-style: solid; border-radius: 8px;"
+                src="@/assets/profile.jpg"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <p
+              class="text-h6 font-weight-light"
+              style="max-width: 800px;"
+            >
+              {{ store.resume.basics.bio }}
+            </p>
           </div>
-          <p class="mt-5 text-h6 font-weight-light">
-            {{ store.resume.basics.bio }}
-          </p>
         </div>
         <v-row class="d-flex align-center mt-10">
           <v-icon 
