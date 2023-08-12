@@ -7,7 +7,14 @@
       >
         <div>
           <div class="text-h2 font-weight-bold">
-            Hi, I'm Ethan.
+            Hi, I'm
+            <router-link to="/about">
+              <a
+                class="name"
+              >
+                Ethan.
+              </a>
+            </router-link>
           </div>
           <div class="text-h5 font-weight-light mt-3">
             {{ store.resume.basics.summary }}
@@ -73,3 +80,16 @@
     }
   }
 </script>
+
+<style scoped>
+
+.name:hover {
+  color: #9B59B6;
+}
+
+.name {
+  color: white; 
+  text-decoration: underline; 
+  text-decoration-color: #9B59B6;
+}
+</style>
