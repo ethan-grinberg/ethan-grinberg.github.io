@@ -5,19 +5,23 @@
         <div class="text-h2 text-center">
           My Work
         </div>
-        <v-select 
-          v-model="selectedSkills"
-          class="my-6"
-          :items="skills"
-          chips
-          label="Skills"
-          multiple
-          clearable
-          hint="Filter My Work by Skills"
-          persistent-hint
-          color="primary"
-          item-color="primary"
-        />
+        <v-row
+          style="max-width: 600px; margin: 0 auto;"
+        >
+          <v-select 
+            v-model="selectedSkills"
+            class="my-6"
+            :items="skills"
+            chips
+            label="Skills"
+            multiple
+            clearable
+            hint="Filter My Work by Skills"
+            persistent-hint
+            color="primary"
+            item-color="primary"
+          />
+        </v-row>
         <div class="text-h4 my-5">
           Projects
         </div>

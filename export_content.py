@@ -23,6 +23,8 @@ def parse_tag(tag):
 def main():
     md_files = []
     meta_datas = []
+
+    work = []
     for name in os.listdir(dir_path):
         file_name = join(dir_path, name)
         if isfile(file_name):
@@ -31,6 +33,7 @@ def main():
                 f.close()
                 md_file = markdown_to_json.dictify(f_str)
                 meta_data = frontmatter.loads(f_str)
+                resume_type = parse_tag(meta_data["tags"])
 
                 md_files.append(md_file)
                 meta_datas.append(meta_data)
