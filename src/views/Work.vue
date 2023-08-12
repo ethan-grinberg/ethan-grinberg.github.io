@@ -22,20 +22,33 @@
             item-color="primary"
           />
         </v-row>
-        <div class="text-h4 my-5">
+        <div class="text-h4 my-5 text-center">
           Projects
         </div>
-
+        <v-divider />
         <v-container>
           <v-row
-            align="start"
+            align="center"
+            justify="center"
           >
             <v-col
               v-for="project in store.resume.projects"
               :key="project.name"
               cols="auto"
             >
-              <v-card max-width="344">
+              <v-card
+                max-width="344"
+                class="pb-5"
+              >
+                <v-hover v-slot="{isHovering, props}">
+                  <v-btn
+                    v-bind="props"
+                    icon="mdi-open-in-new"
+                    style="position: absolute; top: 2px; right: 2px;"
+                    :color="isHovering ? 'info': 'primary'"
+                    :to="`project/${project.name}`"
+                  />
+                </v-hover>
                 <img
                   :src="getImg(project.images[0])"
                   class="card-img"
@@ -50,37 +63,70 @@
                 <v-card-subtitle>
                   {{ project.type }}
                 </v-card-subtitle>
-                <v-card-actions>
-                  <v-btn
-                    color="primary"
-                    variant="tonal"
-                    :to="`project/${project.name}`"
-                  >
-                    Explore
-                  </v-btn>
-                </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
         </v-container>
-        <div class="text-h4 my-5">
+        <div class="text-h4 my-5 text-center">
           Work Experience
         </div>
+        <v-divider />
         <v-container>
           <v-row
-            v-for="work in store.resume.work"
-            align="start"
+            v-for="(work, index) in store.resume.work"
+            :key="index"
+            justify="center"
           >
-            <v-card>
-              <v-card-title>
+            <v-card
+              width="600px"
+              class="mt-5 pb-5"
+            >
+              <v-hover v-slot="{isHovering, props}">
+                <v-btn
+                  v-bind="props"
+                  icon="mdi-open-in-new"
+                  style="position: absolute; top: 2px; right: 2px;"
+                  :color="isHovering ? 'info': 'primary'"
+                  :to="`/project/${work.position}-${work.company}`"
+                />
+              </v-hover>
+
+              <v-card-title
+                class="text-wrap"
+                style="word-break: break-word"
+              >
                 {{ work.position }}
               </v-card-title>
+              <v-card-subtitle
+                class="text-wrap"
+                style="word-break: break-word"
+              >
+                {{ work.company }}
+              </v-card-subtitle>
             </v-card>
           </v-row>
         </v-container>
-        <div class="text-h4 my-5">
+        <div class="text-h4 my-5 text-center">
           Courses
         </div>
+        <v-divider />
+        <v-container>
+          <v-row justify="center">
+            <v-col
+              v-for="course in store.resume.courses"
+              :key="course.name"
+              cols="auto"
+            >
+              <v-card>
+                <v-card-title
+                  class="text-wrap text-center"
+                >
+                  {{ course.name }}
+                </v-card-title>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-col>
     </v-responsive>
   </v-container>
