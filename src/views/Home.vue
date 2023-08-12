@@ -39,24 +39,30 @@
             class="d-flex mt-5"
             style="flex-wrap: wrap; gap: 20px"
           >
-            <v-btn 
-              width="175px" 
-              height="50px" 
-              class="rounded-lg" 
-              color="primary"
-              to="/work"
-            >
-              Check Out My Work
-            </v-btn>
-            <v-btn 
-              width="175px" 
-              height="50px" 
-              class="rounded-lg" 
-              color="primary"
-              :href="store.resume.basics.resume_url"
-            >
-              Download Resume
-            </v-btn>
+            <v-hover v-slot="{ isHovering, props }">
+              <v-btn 
+                v-bind="props" 
+                width="175px" 
+                height="50px" 
+                class="rounded-lg"
+                :color="isHovering ? 'info': 'primary'"
+                to="/work"
+              >
+                Check Out My Work
+              </v-btn>
+            </v-hover>
+            <v-hover v-slot="{isHovering, props}">
+              <v-btn 
+                v-bind="props" 
+                width="175px" 
+                height="50px" 
+                class="rounded-lg" 
+                :color="isHovering ? 'info': 'primary'"
+                :href="store.resume.basics.resume_url"
+              >
+                Download Resume
+              </v-btn>
+            </v-hover>
           </div>
         </div>
         <transition
@@ -105,7 +111,8 @@
 <style scoped>
 
 .name:hover {
-  color: #9B59B6;
+  color: #3498DB;
+  text-decoration-color: #3498DB;
 }
 
 .name {
