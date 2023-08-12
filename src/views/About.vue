@@ -17,10 +17,58 @@
               height="250px"
             />
           </div>
-          <p class="mt-5 text-h6">
+          <p class="mt-5 text-h6 font-weight-light">
             {{ store.resume.basics.bio }}
           </p>
         </div>
+        <v-row class="d-flex align-center mt-10">
+          <v-icon 
+            icon="mdi-medal" 
+            size="large"
+          />
+          <div class="text-h4 ml-4">
+            Highlights
+          </div>
+        </v-row>
+        <v-divider class="my-5" />
+        <v-carousel
+          cycle
+          hide-delimiter-background
+          show-arrows="hover"
+        >
+          <v-carousel-item
+            v-for="item in awards"
+            :key="item.title"
+          >
+            <v-sheet
+              height="100%"
+              rounded
+              :color="item.color"
+            >
+              <v-row
+                class="fill-height justify-center align-center"
+              >
+                <v-card
+                  max-width="500px"
+                  class="mx-10"
+                >
+                  <v-card-title
+                    class="text-h6 text-wrap"
+                    style="word-break: break-word"
+                  >
+                    {{ item.title }}
+                  </v-card-title>
+                  <v-card-text
+                    class="text-wrap"
+                    style="word-break: break-word"
+                  >
+                    {{ item.description }} 
+                  </v-card-text>
+                </v-card>
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
         <v-container class="mt-15">
           <v-row>
             <v-col>
@@ -63,6 +111,8 @@
                 </v-row>
               </v-container>
             </v-col>
+          </v-row>
+          <v-row>
             <v-col>
               <v-row class="d-flex align-center">
                 <v-icon 
@@ -104,54 +154,6 @@
             </v-col>
           </v-row>
         </v-container>      
-        <v-row class="d-flex align-center mt-5">
-          <v-icon 
-            icon="mdi-medal" 
-            size="large"
-          />
-          <div class="text-h4 ml-4">
-            Awards
-          </div>
-        </v-row>
-        <v-divider class="my-5" />
-        <v-carousel
-          cycle
-          hide-delimiter-background
-          show-arrows="hover"
-        >
-          <v-carousel-item
-            v-for="item in awards"
-            :key="item.title"
-          >
-            <v-sheet
-              height="100%"
-              rounded
-              :color="item.color"
-            >
-              <v-row
-                class="fill-height justify-center align-center"
-              >
-                <v-card
-                  max-width="500px"
-                  class="mx-10"
-                >
-                  <v-card-title
-                    class="text-h6 text-wrap"
-                    style="word-break: break-word"
-                  >
-                    {{ item.title }}
-                  </v-card-title>
-                  <v-card-text
-                    class="text-wrap"
-                    style="word-break: break-word"
-                  >
-                    {{ item.description }} 
-                  </v-card-text>
-                </v-card>
-              </v-row>
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel>
       </v-col>
     </v-responsive>
   </v-container> 

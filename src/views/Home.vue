@@ -6,7 +6,7 @@
           <div class="text-h2 font-weight-bold">
             Hi, I'm Ethan.
           </div>
-          <div class="text-h5 font-weight-thin mt-4">
+          <div class="text-h5 font-weight-light mt-4">
             {{ store.resume.basics.summary }}
           </div>
           <v-row class="mt-2">
