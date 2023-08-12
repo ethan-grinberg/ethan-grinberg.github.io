@@ -6,19 +6,35 @@
         style="flex-wrap: wrap; gap: 20px;"
       >
         <div>
-          <div class="text-h2 font-weight-bold">
-            Hi, I'm
-            <router-link to="/about">
-              <a
-                class="name"
-              >
-                Ethan.
-              </a>
-            </router-link>
-          </div>
-          <div class="text-h5 font-weight-light mt-3">
-            {{ store.resume.basics.summary }}
-          </div>
+          <transition
+            name="fade"
+            appear
+          >
+            <div
+              key="my-name"
+              class="text-h2 font-weight-bold"
+            >
+              Hi, I'm
+              <router-link to="/about">
+                <a
+                  class="name"
+                >
+                  Ethan.
+                </a>
+              </router-link>
+            </div>
+          </transition>
+          <transition
+            name="fade-late"
+            appear
+          >
+            <div
+              key="my-bio"
+              class="text-h5 font-weight-light mt-3"
+            >
+              {{ store.resume.basics.summary }}
+            </div>
+          </transition>
           <div
             class="d-flex mt-5"
             style="flex-wrap: wrap; gap: 20px"
@@ -43,11 +59,16 @@
             </v-btn>
           </div>
         </div>
-        <Vue3Lottie
-          :animation-data="monkeyLottie"
-          height="350px"
-          width="350px"
-        />
+        <transition
+          name="fade"
+          appear
+        >
+          <Vue3Lottie
+            :animation-data="monkeyLottie"
+            height="350px"
+            width="350px"
+          />
+        </transition>
       </div>
     </v-responsive>
   </v-container>
@@ -91,5 +112,26 @@
   color: white; 
   text-decoration: underline; 
   text-decoration-color: #9B59B6;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-late-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+  transition-delay: 0.5s;
+}
+
+.fade-late-enter-from,
+.fade-late-leave-to {
+  opacity: 0;
 }
 </style>
