@@ -22,9 +22,17 @@
             item-color="primary"
           />
         </v-row>
-        <div class="text-h4 my-5 text-center">
-          Projects
+        <div class="d-flex align-center justify-center">
+          <v-icon
+            icon="mdi-lightbulb"
+            size="large"
+            class="mr-2"
+          />
+          <div class="text-h4 my-5 text-center">
+            Projects
+          </div>
         </div>
+
         <v-divider />
         <v-container>
           <v-row
@@ -67,8 +75,15 @@
             </v-col>
           </v-row>
         </v-container>
-        <div class="text-h4 my-5 text-center">
-          Work Experience
+        <div class="d-flex justify-center align-center">
+          <v-icon
+            icon="mdi-briefcase"
+            class="mr-2"
+            size="large"
+          />
+          <div class="text-h4 my-5 text-center">
+            Work Experience
+          </div>
         </div>
         <v-divider />
         <v-container>
@@ -109,8 +124,15 @@
             </v-card>
           </v-row>
         </v-container>
-        <div class="text-h4 my-5 text-center">
-          Courses
+        <div class="d-flex justify-center align-center">
+          <v-icon 
+            class="mr-2"
+            icon="mdi-chair-school" 
+            size="large"
+          />
+          <div class="text-h4 my-5">
+            Courses
+          </div>
         </div>
         <v-divider />
         <v-container>
