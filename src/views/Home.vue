@@ -1,19 +1,25 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-left fill-height">
-      <v-row>
-        <v-col cols="auto">
+      <div
+        class="d-flex align-center justify-center"
+        style="flex-wrap: wrap; gap: 20px;"
+      >
+        <div>
           <div class="text-h2 font-weight-bold">
             Hi, I'm Ethan.
           </div>
-          <div class="text-h5 font-weight-light mt-4">
+          <div class="text-h5 font-weight-light mt-3">
             {{ store.resume.basics.summary }}
           </div>
-          <v-row class="mt-2">
+          <div
+            class="d-flex mt-5"
+            style="flex-wrap: wrap; gap: 20px"
+          >
             <v-btn 
               width="175px" 
               height="50px" 
-              class="ml-3 my-4 rounded-lg" 
+              class="rounded-lg" 
               color="primary"
               to="/work"
             >
@@ -22,20 +28,20 @@
             <v-btn 
               width="175px" 
               height="50px" 
-              class="ml-2 my-4 rounded-lg" 
+              class="rounded-lg" 
               color="primary"
               :href="store.resume.basics.resume_url"
             >
               Download Resume
             </v-btn>
-          </v-row>
-        </v-col>
+          </div>
+        </div>
         <Vue3Lottie
           :animation-data="monkeyLottie"
           height="350px"
           width="350px"
         />
-      </v-row>
+      </div>
     </v-responsive>
   </v-container>
 </template>
