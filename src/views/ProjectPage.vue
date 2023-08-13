@@ -40,12 +40,20 @@
           <v-col
             v-for="image in data.images"
             :key="image"
-            cols="auto"
+            cols="12"
+            lg="3"
+            md="3"
+            sm="3"
+            xl="3"
+            xxl="3"
+            width="100%"
           >
-            <img
+            <v-img
               :src="getImg(image)"
-              style="width: 344px; height: 300px; object-fit: cover; border-radius: 8px;"
-            >
+              aspect-ratio="1"
+              cover
+              style="border-radius: 5px;"
+            />
           </v-col>
         </v-row>
       </v-container>
@@ -88,7 +96,7 @@
         </div>
         <div>
           <div class="text-h4">
-            Contributions
+            Highlights
           </div>
           <v-divider />
           <ul>
