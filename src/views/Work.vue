@@ -41,7 +41,7 @@
             justify="center"
           >
             <v-col
-              v-for="project in store.resume.projects"
+              v-for="project in currProjects"
               :key="project.name"
               cols="auto"
             >
@@ -89,7 +89,7 @@
         <v-divider />
         <v-container>
           <v-row
-            v-for="(work, index) in store.resume.experience"
+            v-for="(work, index) in currExperience"
             :key="index"
             justify="center"
           >
@@ -139,7 +139,7 @@
         <v-container>
           <v-row justify="center">
             <v-col
-              v-for="course in store.resume.courses"
+              v-for="course in currCourses"
               :key="course.name"
               cols="auto"
             >
@@ -176,7 +176,14 @@ export default {
     data() {
         return {
             skills: [],
-            selectedSkills: []
+            selectedSkills: [],
+            currProjects: this.store.resume.projects,
+            currExperience: this.store.resume.experience,
+            currCourses: this.store.resume.courses,
+            allProjects: this.store.resume.projects,
+            allExperience: this.store.resume.experience,
+            allCourses: this.store.resume.courses
+
         }
 
     },
@@ -191,7 +198,15 @@ export default {
         },
 
         updateSelection() {
-          console.log(this.selectedSkills)
+          if (this.selectedSkills.length === 0) {
+            this.currProjects = this.allProjects;
+            this.currExperience = this.allExperience;
+            this.currCourses = this.allCourses;
+          } else {
+            this.currProjects = this.allProjects.filter(this.filterBySkills);
+            this.currExperience = this.allExperience.filter(this.filterBySkills);
+            this.currCourses = this.allCourses.filter(this.filterBySkills);
+          }
         },
 
         getAllSkills() {
@@ -212,6 +227,11 @@ export default {
           skillsArr.sort((a, b) => b[1] - a[1]);
 
           this.skills = skillsArr.map(item => item[0]);
+        },
+
+        filterBySkills(element) {
+          const skills = element.skills;
+          return skills.some(element => this.selectedSkills.includes(element));
         }
     }
 }
