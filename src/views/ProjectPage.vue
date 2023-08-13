@@ -49,20 +49,70 @@
           </v-col>
         </v-row>
       </v-container>
-      <div class="text-h4">
-        Contributions
+      
+      <div
+        class="d-flex"
+        style="flex-wrap: wrap; gap: 20px;"
+      >
+        <div>
+          <div>
+            <div class="text-h4">
+              Links
+            </div>
+            <v-divider />
+            <v-card
+              v-for="(link, index) in data.links"
+              :key="index"
+              max-width="500px"
+              class="mt-2"
+            >
+              <div class="d-flex">
+                <v-btn
+                  icon="mdi-open-in-new"
+                  color="primary"
+                  size="small"
+                  :href="link.url"
+                />
+                <v-card-title
+                  class="text-wrap"
+                  style="word-break: break-word"
+                >
+                  {{ link.text }}
+                </v-card-title>
+              </div>
+            </v-card>
+          </div>
+        </div>
+        <div>
+          <div class="text-h4">
+            Contributions
+          </div>
+          <v-divider />
+          <ul>
+            <li
+              v-for="(item, index) in data.contributions"
+              :key="index"
+              class="mt-5 text-h6 font-weight-light ml-5"
+              style="max-width: 700px;"
+            >
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </div>
-      <v-divider />
-      <ul>
-        <li
-          v-for="(item, index) in data.contributions"
-          :key="index"
-          class="mt-5 text-h6 font-weight-light ml-5"
-          style="max-width: 900px;"
-        >
-          {{ item }}
-        </li>
-      </ul>
+      <v-expansion-panels
+        style="max-width: 1100px"
+        class="my-5"
+      >
+        <v-expansion-panel>
+          <v-expansion-panel-title class="text-h5">
+            Full Description
+          </v-expansion-panel-title>
+          <v-expansion-panel-text class="text-subtitle-1">
+            {{ data.description }}
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </v-responsive>
   </v-container>
 </template>
@@ -99,18 +149,14 @@
           const projObj = this.store.resume.projects.filter((project) => (project.name === name));
           this.data = projObj[0];
         }
-        console.log(this.data);
       },
       methods: {
         getImg(name) {
             return new URL(`../assets/${name}`, import.meta.url).href;
-        }
+        },
       }
     }
   </script>
   
 <style scoped>
-.contributions-list {
-
-}
 </style>
