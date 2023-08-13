@@ -44,18 +44,18 @@
           >
             <img
               :src="getImg(image)"
-              style="width: 300px; height: 300px; object-fit: cover; border-radius: 8px;"
+              style="width: 344px; height: 300px; object-fit: cover; border-radius: 8px;"
             >
           </v-col>
         </v-row>
       </v-container>
       
       <div
-        class="d-flex"
+        class="d-flex mt-5"
         style="flex-wrap: wrap; gap: 20px;"
       >
         <div>
-          <div>
+          <div v-if="!(data.links.length === 0)">
             <div class="text-h4">
               Links
             </div>
@@ -104,6 +104,7 @@
         </div>
       </div>
       <v-expansion-panels
+        v-if="!(data.description.length === 0)"
         style="max-width: 1100px"
         class="my-5"
       >
