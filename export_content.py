@@ -25,7 +25,19 @@ def parse_tag(tag):
 
 
 def parse_bio(md_file, meta_data):
-    return None
+    data_obj = {}
+    data_obj["name"] = meta_data["name"]
+    data_obj["label"] = meta_data["label"]
+    data_obj["profile_pic"] = meta_data["profile_pic"]
+    data_obj["email"] = meta_data["email"]
+    data_obj["url"] = meta_data["url"]
+    data_obj["resume_url"] = meta_data["resume_url"]
+
+    data_obj["summary"] = md_file["Summary"]
+    data_obj["bio"] = md_file["Long Bio"]
+    data_obj["profiles"] = [parse_link(link) for link in md_file["Profiles"]]
+
+    return data_obj, "bio"
 
 
 def parse_file(dir_path, name):
@@ -50,7 +62,7 @@ def parse_file(dir_path, name):
             if not meta_data["category"] == None:
                 data_obj["type"] = meta_data["category"]
 
-            data_obj["name"] = meta_data["name"]
+            data_obj["name"] = meta_data["title"]
 
             start = str(meta_data["start"])
             end = str(meta_data["end"]) if not meta_data["end"] == None else "Present"
@@ -61,11 +73,11 @@ def parse_file(dir_path, name):
                 meta_data["skills"] if not meta_data["skills"] == None else []
             )
             data_obj["images"] = (
-                meta_data["images"] if not meta_data["images"] == None else []
+                meta_data["images"] if not meta_data.get("images", None) == None else []
             )
             data_obj["description"] = md_file["Description"]
             data_obj["contributions"] = md_file["Contributions"]
-            data_obj["links"] = links = [parse_link(link) for link in md_file["Links"]]
+            data_obj["links"] = [parse_link(link) for link in md_file["Links"]]
 
             return data_obj, resume_type
 
@@ -73,20 +85,20 @@ def parse_file(dir_path, name):
 def main():
     full_data = {}
     for name in os.listdir(dir_path):
-        if name == "product cupid - resume.md":
-            parsed_f = parse_file(dir_path, name)
-            if not parsed_f:
-                continue
+        print(name)
+        parsed_f = parse_file(dir_path, name)
+        if not parsed_f:
+            continue
 
-            obj = parsed_f[0]
-            res_type = parsed_f[1]
+        obj = parsed_f[0]
+        res_type = parsed_f[1]
 
-            if res_type == "bio":
-                full_data["bio"] = obj
-            else:
-                existing_data = full_data.get(res_type, [])
-                existing_data.append(obj)
-                full_data[res_type] = existing_data
+        if res_type == "bio":
+            full_data["bio"] = obj
+        else:
+            existing_data = full_data.get(res_type, [])
+            existing_data.append(obj)
+            full_data[res_type] = existing_data
 
     with open(out_file_name, "w") as outfile:
         json.dump(full_data, outfile)
