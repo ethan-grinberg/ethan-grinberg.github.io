@@ -6,7 +6,7 @@ import re
 import json
 
 dir_path = "../../../working/knowledge/resume"
-out_file_name = "resume.json"
+out_file_name = "src/resume.json"
 
 
 def parse_link(raw_link):

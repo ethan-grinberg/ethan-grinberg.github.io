@@ -4,7 +4,7 @@
       <div
         class="text-start text-h4 mt-5"
       >
-        {{ is_work ? data.position : data.name }}
+        {{ is_work ? data.type : data.name }}
       </div>
       <div class="d-flex justify-start align-center mt-5">
         <div class="d-flex align-center">
@@ -22,7 +22,7 @@
             class="mr-2"
           />
           <div class="text-h6">
-            {{ is_work ? data.company : data.type }}
+            {{ is_work ? data.name : data.type }}
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@
           this.is_work = true;
           this.position = parts[0];
           this.company = parts[1];
-          const workObj = this.store.resume.work.filter((work) => (work.position === this.position) && (work.company === this.company));
+          const workObj = this.store.resume.experience.filter((work) => (work.name === this.company) && (work.type === this.position));
           this.data = workObj[0];
         } else {
           const projObj = this.store.resume.projects.filter((project) => (project.name === name));

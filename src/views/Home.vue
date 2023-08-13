@@ -32,7 +32,7 @@
               key="my-bio"
               class="text-h5 font-weight-light mt-3"
             >
-              {{ store.resume.basics.summary }}
+              {{ store.resume.bio.summary }}
             </div>
           </transition>
           <div
@@ -58,7 +58,7 @@
                 height="50px" 
                 class="rounded-lg" 
                 :color="isHovering ? 'info': 'primary'"
-                :href="store.resume.basics.resume_url"
+                :href="store.resume.bio.resume_url"
               >
                 Download Resume
               </v-btn>
@@ -103,7 +103,6 @@
 
     },
     created() {
-      console.log(this.store.resume.basics.name);
     }
   }
 </script>

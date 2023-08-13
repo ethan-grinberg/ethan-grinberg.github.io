@@ -24,7 +24,7 @@
               class="text-h6 font-weight-light"
               style="max-width: 800px;"
             >
-              {{ store.resume.basics.bio }}
+              {{ store.resume.bio.bio }}
             </p>
           </div>
         </div>

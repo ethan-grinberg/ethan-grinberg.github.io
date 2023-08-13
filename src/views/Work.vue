@@ -88,7 +88,7 @@
         <v-divider />
         <v-container>
           <v-row
-            v-for="(work, index) in store.resume.work"
+            v-for="(work, index) in store.resume.experience"
             :key="index"
             justify="center"
           >
@@ -102,7 +102,7 @@
                   icon="mdi-open-in-new"
                   style="position: absolute; top: 2px; right: 2px;"
                   :color="isHovering ? 'info': 'primary'"
-                  :to="`/project/${work.position}-${work.company}`"
+                  :to="`/project/${work.type}-${work.name}`"
                 />
               </v-hover>
 
@@ -110,13 +110,13 @@
                 class="text-wrap"
                 style="word-break: break-word"
               >
-                {{ work.position }}
+                {{ work.type }}
               </v-card-title>
               <v-card-subtitle
                 class="text-wrap"
                 style="word-break: break-word"
               >
-                {{ work.company }}
+                {{ work.name }}
               </v-card-subtitle>
               <v-card-text>
                 {{ work.date }}
@@ -181,7 +181,6 @@ export default {
     },
 
     created() {
-        console.log(this.store.resume.basics.name);
     },
 
     methods: {
