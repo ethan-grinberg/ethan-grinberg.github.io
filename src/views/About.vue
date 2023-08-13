@@ -45,7 +45,7 @@
         >
           <v-carousel-item
             v-for="item in awards"
-            :key="item.title"
+            :key="item.name"
           >
             <v-sheet
               height="100%"
@@ -63,7 +63,7 @@
                     class="text-h6 text-wrap"
                     style="word-break: break-word"
                   >
-                    {{ item.title }}
+                    {{ item.name }}
                   </v-card-title>
                   <v-card-text
                     class="text-wrap"
@@ -94,7 +94,7 @@
                 <v-row align="end">
                   <v-col
                     v-for="item in store.resume.education"
-                    :key="item.title"
+                    :key="item.name"
                     cols="12"
                   >
                     <v-card
@@ -105,7 +105,7 @@
                         class="text-h6 text-wrap"
                         style="word-break: break-word"
                       >
-                        {{ item.title }}
+                        {{ item.name }}
                       </v-card-title>
                       <v-card-text
                         class="text-wrap"
@@ -135,7 +135,7 @@
                 <v-row align="end">
                   <v-col
                     v-for="item in store.resume.publications"
-                    :key="item.title"
+                    :key="item.name"
                     cols="12"
                   >
                     <v-card
@@ -146,7 +146,7 @@
                         class="text-h6 text-wrap"
                         style="word-break: break-word"
                       >
-                        {{ item.title }}
+                        {{ item.name }}
                       </v-card-title>
                       <v-card-text
                         class="text-wrap"
