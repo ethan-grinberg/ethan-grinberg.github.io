@@ -1,5 +1,5 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory  } from 'vue-router'
 import HomeView from '../views/Home.vue'
 import AboutView from '../views/About.vue'
 import WorkView from '../views/Work.vue'
@@ -66,7 +66,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
   scrollBehavior (to, from, savedPosition) {
     if (to.hash) {
