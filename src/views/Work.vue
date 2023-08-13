@@ -20,6 +20,7 @@
             persistent-hint
             color="primary"
             item-color="primary"
+            @update:model-value="updateSelection"
           />
         </v-row>
         <div class="d-flex align-center justify-center">
@@ -40,7 +41,7 @@
             justify="center"
           >
             <v-col
-              v-for="project in store.resume.projects"
+              v-for="project in currProjects"
               :key="project.name"
               cols="auto"
             >
@@ -88,7 +89,7 @@
         <v-divider />
         <v-container>
           <v-row
-            v-for="(work, index) in store.resume.experience"
+            v-for="(work, index) in currExperience"
             :key="index"
             justify="center"
           >
@@ -138,7 +139,7 @@
         <v-container>
           <v-row justify="center">
             <v-col
-              v-for="course in store.resume.courses"
+              v-for="course in currCourses"
               :key="course.name"
               cols="auto"
             >
@@ -174,18 +175,63 @@ export default {
 
     data() {
         return {
-            skills: ['test', 'test2', 'test3'],
-            selectedSkills: []
+            skills: [],
+            selectedSkills: [],
+            currProjects: this.store.resume.projects,
+            currExperience: this.store.resume.experience,
+            currCourses: this.store.resume.courses,
+            allProjects: this.store.resume.projects,
+            allExperience: this.store.resume.experience,
+            allCourses: this.store.resume.courses
+
         }
 
     },
 
     created() {
+      this.getAllSkills();
     },
 
     methods: {
         getImg(name) {
             return new URL(`../assets/${name}`, import.meta.url).href;
+        },
+
+        updateSelection() {
+          if (this.selectedSkills.length === 0) {
+            this.currProjects = this.allProjects;
+            this.currExperience = this.allExperience;
+            this.currCourses = this.allCourses;
+          } else {
+            this.currProjects = this.allProjects.filter(this.filterBySkills);
+            this.currExperience = this.allExperience.filter(this.filterBySkills);
+            this.currCourses = this.allCourses.filter(this.filterBySkills);
+          }
+        },
+
+        getAllSkills() {
+          const work = this.store.resume.experience;
+          const courses = this.store.resume.courses;
+          const projects = this.store.resume.projects;
+          const allExperience = [...work, ...courses, ...projects];
+
+          const allSkills = allExperience.reduce((currList, element) => {
+              const skills = element.skills;
+              for (const skill of skills) {
+                currList[skill] = currList[skill] ? currList[skill] + 1 : 1;
+              }
+              return currList
+          }, {})
+
+          let skillsArr = Object.entries(allSkills);
+          skillsArr.sort((a, b) => b[1] - a[1]);
+
+          this.skills = skillsArr.map(item => item[0]);
+        },
+
+        filterBySkills(element) {
+          const skills = element.skills;
+          return skills.some(element => this.selectedSkills.includes(element));
         }
     }
 }
