@@ -20,6 +20,7 @@
             persistent-hint
             color="primary"
             item-color="primary"
+            @update:model-value="updateSelection"
           />
         </v-row>
         <div class="d-flex align-center justify-center">
@@ -174,18 +175,43 @@ export default {
 
     data() {
         return {
-            skills: ['test', 'test2', 'test3'],
+            skills: [],
             selectedSkills: []
         }
 
     },
 
     created() {
+      this.getAllSkills();
     },
 
     methods: {
         getImg(name) {
             return new URL(`../assets/${name}`, import.meta.url).href;
+        },
+
+        updateSelection() {
+          console.log(this.selectedSkills)
+        },
+
+        getAllSkills() {
+          const work = this.store.resume.experience;
+          const courses = this.store.resume.courses;
+          const projects = this.store.resume.projects;
+          const allExperience = [...work, ...courses, ...projects];
+
+          const allSkills = allExperience.reduce((currList, element) => {
+              const skills = element.skills;
+              for (const skill of skills) {
+                currList[skill] = currList[skill] ? currList[skill] + 1 : 1;
+              }
+              return currList
+          }, {})
+
+          let skillsArr = Object.entries(allSkills);
+          skillsArr.sort((a, b) => b[1] - a[1]);
+
+          this.skills = skillsArr.map(item => item[0]);
         }
     }
 }
