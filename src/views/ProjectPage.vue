@@ -67,12 +67,15 @@
               class="mt-2"
             >
               <div class="d-flex">
-                <v-btn
-                  icon="mdi-open-in-new"
-                  color="primary"
-                  size="small"
-                  :href="link.url"
-                />
+                <v-hover v-slot="{isHovering, props}">
+                  <v-btn
+                    v-bind="props"
+                    icon="mdi-open-in-new"
+                    :color="isHovering ? 'info': 'primary'"
+                    size="small"
+                    :href="link.url"
+                  />
+                </v-hover>
                 <v-card-title
                   class="text-wrap"
                   style="word-break: break-word"
