@@ -15,9 +15,8 @@
           >
             <v-card>
               <v-img
-                src="@/assets/profile.jpg"
-                width="250px"
-                height="250px"
+                src="@/assets/about_pic.jpg"
+                width="300px"
               />
             </v-card>
             <p
