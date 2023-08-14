@@ -8,8 +8,9 @@
         <v-row
           style="max-width: 600px; margin: 0 auto;"
         >
-          <v-select 
+          <v-autocomplete 
             v-model="selectedSkills"
+            auto-select-first
             class="my-6"
             :items="skills"
             chips
