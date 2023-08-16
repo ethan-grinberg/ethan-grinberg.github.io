@@ -1,55 +1,29 @@
-# essentials
+# Portfolio Website
+
+This is my portfolio site built in Vue and Vuetify. 
+
+It also has a feature to extract my notes from [Obsidian](https://obsidian.md/) into a structured JSON to populate my site. This isn't a general-purpose feature yet as it's specific to how my notes are structured but feel free to adapt it to your notes/project. It makes website content management very easy as you don't need to edit the front end to update the website content.
+
+
 
 ## Project setup
 
 ```
-# yarn
-yarn
-
-# npm
 npm install
-
-# pnpm
-pnpm install
 ```
 
-### Compiles and hot-reloads for development
-
+## Development
 ```
-# yarn
-yarn dev
-
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
 ```
-
-### Compiles and minifies for production
-
+## Build
 ```
-# yarn
-yarn build
-
-# npm
 npm run build
-
-# pnpm
-pnpm build
 ```
 
-### Lints and fixes files
-
+## Run Python Script to convert notes to JSON
 ```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
+python export_content.py
 ```
 
 ### Customize configuration
