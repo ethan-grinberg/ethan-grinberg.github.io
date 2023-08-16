@@ -23,6 +23,7 @@ npm run build
 
 ## Run Python Script to convert notes to JSON
 ```
+pip install -r requirements.txt
 python export_content.py
 ```
 
